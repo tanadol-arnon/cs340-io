@@ -1,0 +1,22 @@
+.warpper-card-img {
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+.warpper-card-img img {
+    position: absolute;
+    top: 0;
+    transition: 1s;
+}
+.warpper-card-img img:hover {
+    transform: scale(1.2);
+}
+.btn-group-custom button{
+    width: 100px;
+    margin-bottom: 0.5rem;
+}
+
+.img-size{
+    width: 300px;
+    height: auto;
+}
