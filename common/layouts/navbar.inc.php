@@ -7,7 +7,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto font-weight-bold">
-                    <li class="nav-item" <?php echo $file_name == 'cart' ? 'active' : '' ?>>
+                    <li class="nav-item <?php echo $file_name == 'cart' ? 'active' : '' ?>">
                         <a class="nav-link" href="cart.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart items</a>
                     </li>
                 </ul>

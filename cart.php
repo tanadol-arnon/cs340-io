@@ -10,6 +10,7 @@
     if(!isset($_SESSION['price'])) {
         $_SESSION['price'] = 10;
     }
+    
     if(!isset($_SESSION['sum'])) {
         $_SESSION['sum'] = 0;
     }
@@ -40,30 +41,32 @@
             </div>
         </div>
         <?php if($_SESSION['pen_amount'] > 0) { ?>
-        <table class="table table-bordered text-center">
-            <thead>
-                <tr class="align-middle">
-                    <th scope="col"></th>
-                    <th scope="col" colspan="2">Product</th>
-                    <th scope="col">price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr> 
-                    <form method="post">
-                        <td class="h3 align-middle">
-                            <input type="submit" id="submit" name="submit" class="btn btn-danger" value="Delete">
-                        </td>
-                    </form>
-                    <td colspan="2"><img class="img-size rounded" src="https://images.unsplash.com/photo-1565359184520-fcff70f99c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Product"></td>
-                    <td class="h5 align-middle"><?= $_SESSION['price'] ?></td>
-                    <td class="h5 align-middle"><?= $_SESSION['pen_amount'] ?></td>
-                    <td class="h5 align-middle"><?= $_SESSION['sum'] ?></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr class="align-middle">
+                        <th scope="col"></th>
+                        <th scope="col" colspan="2">Product</th>
+                        <th scope="col">price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <form method="post">
+                            <td class="h3 align-middle">
+                                <input type="submit" id="submit" name="submit" class="btn btn-danger" value="Delete">
+                            </td>
+                        </form>
+                        <td colspan="2"><img class="img-size rounded" src="https://images.unsplash.com/photo-1565359184520-fcff70f99c24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="Product"></td>
+                        <td class="h5 align-middle"><?= $_SESSION['price'] ?></td>
+                        <td class="h5 align-middle"><?= $_SESSION['pen_amount'] ?></td>
+                        <td class="h5 align-middle"><?= $_SESSION['sum'] ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <?php } else { 
                 echo '<script>alert("Your cart is empty")</script>'; 
                 header("Refresh:0; url=index.php");

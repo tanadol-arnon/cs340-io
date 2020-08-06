@@ -9,9 +9,9 @@
 
     if(isset($_SESSION['pen_amount'])) {
         $_SESSION['stock'] -= $_SESSION['pen_amount'];
-        if($_SESSION['stock'] == 0) {
-            echo '<script>alert("Out of stock");</script>';
-        }
+        // if($_SESSION['stock'] == 0) {
+        //     echo '<script>alert("Out of stock");</script>';
+        // }
     }
 
 ?>
@@ -43,18 +43,20 @@
                             <p class="h5 font-weight-bold">Pencils</p>
                             <p class="h6">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                             <p class="h6 font-weight-bold">Price : 10 Bath</p>
+                            <?php if($_SESSION['stock'] != 0) { ?> 
                             <p id="stock" class="h6 text-success text-center pt-3"><?= $_SESSION['stock'] ?> Left in stock</p>
+                            <?php } else { ?>
+                            <p id="stock" class="h6 text-danger text-center pt-3"><?= $_SESSION['stock'] ?> Left in stock</p>
+                            <?php } ?>
 
                             <?php if($_SESSION['stock'] != 0) { ?>
                             <div class="justify-content-center pt-4">
-                                <!-- <button class="btn btn-outline-danger font-weight-bold button" type="button" name="button">-</button> -->
                                 <div class="form-group row">
                                     <label for="amount" class="h6 col-sm-4 text-center">Amount</label>
                                     <div class="col-sm-8">
                                         <input class="form-control" type="number" id="amount" name="amount" value="1" min="0" max="<?= $_SESSION['stock'] ?>">
                                     </div>
                                 </div>
-                                <!-- <button class="btn btn-outline-primary font-weight-bold button" type="button" name="button">+</button> -->
                             </div>
                             <div class="p-3">
                                 <button type="submit" id="submit" class="btn btn-primary btn-block">Add to cart</button>
